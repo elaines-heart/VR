@@ -11,17 +11,17 @@
 */
 
 let maze = [
+  "--------------M-M-----",
+  "------TTTTT-----------",
+  "------------------T---",
+  "------M-----------T---",
+  "------------------T---",
+  "------------------T---",
+  "------------M-----T---",
   "----------------------",
+  "------M--------M-----",
   "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
-  "----------------------",
+  "----TTTT--------------",
   "----------------------",
 ];
 
@@ -41,6 +41,19 @@ window.addEventListener("DOMContentLoaded",function() {
        Make an appropriate decision based on the characters you chose to enter 
        in the maze.  Create an instance of the corresponding object.
     */
+
+    let row = maze[r];
+    let cols = row.split("");
+    for(let c = 0; c < cols.length; c++){
+      // if(cols[c] == "x"){
+      //   new Block(c,1,r)
+      // }
+      else if(cols[c] == "T"){
+        new Tree(c,1,r);
+      }else if(cols[c]=="M"){
+        new Missile(c,1,r)
+      }
+    }
   }
 
 })
