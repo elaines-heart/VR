@@ -15,7 +15,7 @@ let maze = [
   "------TTTTT-----------",
   "------------------T---",
   "------M-----------T---",
-  "------------------T---",
+  "----RRR-----------T---",
   "------------------T---",
   "------------M-----T---",
   "----------------------",
@@ -45,13 +45,15 @@ window.addEventListener("DOMContentLoaded",function() {
     let row = maze[r];
     let cols = row.split("");
     for(let c = 0; c < cols.length; c++){
-      // if(cols[c] == "x"){
-      //   new Block(c,1,r)
-      // }
-      else if(cols[c] == "T"){
-        new Tree(c,1,r);
-      }else if(cols[c]=="M"){
-        new Missile(c,1,r)
+      if(cols[c] == "T"){
+        new Tree(c,1,r)
+      }
+      else if(cols[c] == "M"){
+        new Missile(c,1,r);
+      }else if(cols[c]=="R"){
+        new Rock(c,1,r)
+      }else if(cols[c]=="H"){
+        new House(c,1,r)
       }
     }
   }
